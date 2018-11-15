@@ -20,7 +20,7 @@
 </style>
 
 		<meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="5V3wvSvGPHpkZSBH1HazY/y8fRIB5k254m10vk5ZgdoOp6O8gBU4JKR8BgSNjxB1Gly+3Rr37rGI5n5EU+PW+w==" />
+<meta name="csrf-token" content="BAPfX4Hm4ihrD4b/MNk+CvLvBXHBJq6itPhncwosImLv+YxeKjXmdqsWoLxpIJ0cFA/Gvto3Darec22JF5Z1Qw==" />
 		<style id="user-css-output" type="text/css">@font-face {
   font-family: "Microsoft Yahei";
   src: url("https://github.com/gaez061732/Shiny_intro/raw/gh-pages/chinese.msyh.ttf") format("truetype");
@@ -444,7 +444,56 @@ shinyApp(ui = ui, server = server)</code></pre></div></div>
 <div class="sl-block" data-block-type="text" data-block-id="bc025351deb7cf05c4900521e03054c6" style="height: auto; min-width: 30px; min-height: 30px; width: 230px; left: 135px; top: 442px;"><div class="sl-block-style" style="z-index: 16; transform: rotate(5deg);"><div class="sl-block-content fragment fade-up" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;" data-fragment-index="0">
 <p>ggplot2 程式碼</p>
 </div></div></div>
-<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 691px; height: 414px; left: 124px; top: 143px;" data-block-id="5f026326103603b23afd9ffbcfb7adba"><div class="sl-block-style" style="z-index: 10; opacity: 0.11;"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1002" data-natural-height="601" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/953794/images/5474409/Tryit.gif"></div></div></div></section><section data-id="92ecd36a56d476fcf9713dd35efa710f"><div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 480px; height: 362px; left: 240px; top: 169px;" data-block-id="0f20960260d4d1bd9dbbcef1852b6378"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="480" data-natural-height="362" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/953794/images/5474565/DOIT.gif"></div></div></section></section><section class="stack" data-id="05dcca36432e7bd46125cfde11ba873a"><section data-id="bc284ac93ea59fe5b14e4e218c2df0f3" data-background-color="#3a3939"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 292px; height: auto;" data-block-id="449ce6056d21fa6fe0e9593cccdffe4f"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 691px; height: 414px; left: 124px; top: 143px;" data-block-id="5f026326103603b23afd9ffbcfb7adba"><div class="sl-block-style" style="z-index: 10; opacity: 0.11;"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1002" data-natural-height="601" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/953794/images/5474409/Tryit.gif"></div></div></div></section><section data-id="92ecd36a56d476fcf9713dd35efa710f"><div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 480px; height: 362px; left: 240px; top: 169px;" data-block-id="0f20960260d4d1bd9dbbcef1852b6378"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="480" data-natural-height="362" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/953794/images/5474565/DOIT.gif"></div></div></section><section data-id="475edfb6b40c15bde755316481ab1709"><div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 39px;" data-block-id="9271aef1b9aae135de0e79f439153d6a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p><span style="font-size:1.6em">公布解答</span></p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="69250fd4f66231bd506041ffcfa4b6aa" style="min-width: 30px; min-height: 30px; width: 821px; height: 544px; left: 70px; top: 124px;"><div class="sl-block-content notranslate" data-highlight-theme="xcode" style="z-index: 12;"><pre class="r"><code>library(shiny)
+library(tidyverse)
+
+ui &lt;- fluidPage(
+   
+   # Application title
+   titlePanel("Try it !"),
+   
+   # Sidebar with a slider input for number of bins 
+   sidebarLayout(
+      sidebarPanel(
+        selectInput("color", label = h3("Select Color"), 
+                    choices = list("hotpink" = "hotpink",
+                                   "darkcyan" = "darkcyan", 
+                                   "khaki" = "khaki",
+                                   "azure" = "azure",
+                                   "blueviolet" = "blueviolet"), 
+                    selected = "hotpink"),
+        selectInput("species", label = h3("Select Species"), 
+                    choices = list("setosa" = "setosa",
+                                   "versicolor" = "versicolor", 
+                                   "virginica" = "virginica"), 
+                    selected = "setosa")
+      ),
+      
+      # Show a plot of the generated distribution
+      mainPanel(
+         plotOutput("distPlot")
+      )
+   )
+)
+
+# Define server logic required to draw a histogram
+server &lt;- function(input, output) {
+   
+   output$distPlot &lt;- renderPlot({
+     ggplot(data=iris  %&gt;% filter(Species == input$species ), aes(x=Sepal.Width))+ 
+       geom_histogram(binwidth=0.2, color="black", fill= input$color) + 
+       xlab("Sepal Width") +  ylab("Frequency") + 
+       ggtitle(paste0("Histogram of ", input$species ,"'s Sepal Width"))
+   })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+
+</code></pre></div></div></section></section><section class="stack" data-id="05dcca36432e7bd46125cfde11ba873a"><section data-id="bc284ac93ea59fe5b14e4e218c2df0f3" data-background-color="#3a3939"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 292px; height: auto;" data-block-id="449ce6056d21fa6fe0e9593cccdffe4f"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
 <pre style="text-align:center"><span style="color:#FFFFFF"><span style="font-size:3.0em">ADVANCED</span></span></pre>
 </div></div>
 <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 400px;" data-block-id="67bfab535426f5b1cecc0146aa5e0379"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
@@ -457,7 +506,7 @@ shinyApp(ui = ui, server = server)</code></pre></div></div>
 </div></div>
 <div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 427px; height: 231px; left: 37px; top: 111px;" data-block-id="6e5b40226eec6c8cd4d1bf25be543c31"><div class="sl-block-content fragment fade-up" style="z-index: 13;" data-fragment-index="0"><img style="" data-natural-width="500" data-natural-height="270" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/953794/images/5474735/advanced_food.gif"></div></div>
 <div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 421px; height: 237px; left: 501px; top: 112px;" data-block-id="d338a9a94d6e3a714d2590787851c29c"><div class="sl-block-content fragment fade-up" style="z-index: 14;" data-fragment-index="1"><img style="" data-natural-width="480" data-natural-height="270" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/953794/images/5474736/advanced_kitchen.gif"></div></div>
-<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 416px; height: 234px; left: 272px; top: 379px;" data-block-id="97c9d9894b43ec33097a75afebbb7ef8"><div class="sl-block-content fragment fade-up" style="z-index: 15;" data-fragment-index="2"><img style="" data-natural-width="540" data-natural-height="304" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/953794/images/5483973/luxury.gif"></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 416px; height: 234px; left: 272px; top: 379px;" data-block-id="97c9d9894b43ec33097a75afebbb7ef8"><div class="sl-block-content fragment fade-up" style="z-index: 15;" data-fragment-index="2"><img style="" data-natural-width="540" data-natural-height="304" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/953794/images/5483973/luxury.gif"></div></div>
 <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 290px; left: 335px; top: 630px;" data-block-id="be5cef8303948b28aff6e71aa2c9dc81"><div class="sl-block-content fragment fade-up" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;" data-fragment-index="2">
 <p><font color="#ffffff">有質感的店面</font></p>
 </div></div></section><section data-background-color="#3a3939" data-id="9a9cc3467399d770e814485cb26aca00">
@@ -481,23 +530,27 @@ shinyApp(ui = ui, server = server)</code></pre></div></div>
 </div></div></section><section data-background-color="#3a3939" data-id="c4d293241bbe493b911751143ff92128"><div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 720px; left: 120px; top: 35px;" data-block-id="ba2485c2e735038e16611ac151591c07"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
 <p><span style="color:#FFFFFF"><span style="font-size:1.8em">有質感的店面－Dashboard</span></span></p>
 </div></div>
-<div class="sl-block" data-block-type="image" data-block-id="4bc425c59558b9e2add703f6efa6ce34" style="min-width: 4px; min-height: 4px; width: 496px; height: 300px; left: 51px; top: 166px;"><div class="sl-block-content fragment fade-up" style="z-index: 11;" data-fragment-index="0"><img style="" data-natural-width="496" data-natural-height="300" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/953794/images/5484352/pasted-from-clipboard.png"></div></div>
-<div class="sl-block" data-block-type="image" data-block-id="de9098c433e0bd9a4b57696bed9d5240" style="min-width: 4px; min-height: 4px; width: 473px; height: 350px; left: 435px; top: 246px;"><div class="sl-block-content fragment fade-up" style="z-index: 12;" data-fragment-index="1"><img style="" data-natural-width="1823" data-natural-height="1350" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/953794/images/5484355/pasted-from-clipboard.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="4bc425c59558b9e2add703f6efa6ce34" style="min-width: 4px; min-height: 4px; width: 496px; height: 300px; left: 51px; top: 166px;"><div class="sl-block-content fragment fade-up" style="z-index: 11;" data-fragment-index="0"><img style="" data-natural-width="496" data-natural-height="300" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/953794/images/5484352/pasted-from-clipboard.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="de9098c433e0bd9a4b57696bed9d5240" style="min-width: 4px; min-height: 4px; width: 473px; height: 350px; left: 435px; top: 246px;"><div class="sl-block-content fragment fade-up" style="z-index: 12;" data-fragment-index="1"><img style="" data-natural-width="1823" data-natural-height="1350" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/953794/images/5484355/pasted-from-clipboard.png"></div></div>
 <div class="sl-block" data-block-type="text" data-block-id="841f58fe97919d59fae7a3fa2bc94a16" style="height: auto; min-width: 30px; min-height: 30px; width: 294px; left: 120px; top: 490px;"><div class="sl-block-content fragment fade-up" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="0">
 <p><a href="https://rstudio.github.io/shinydashboard/" target="_blank"><span style="color:#40E0D0">Shiny Dashboard</span></a></p>
 </div></div>
 <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 294px; left: 546px; top: 620px;" data-block-id="13717047d2e11b7aba61bf15c53298c1"><div class="sl-block-content fragment fade-up" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;" data-fragment-index="1">
 <p><a href="https://rmarkdown.rstudio.com/flexdashboard/" target="_blank"><span style="color:#40E0D0">flexdashboard</span></a></p>
-</div></div></section></section><section data-id="facfd534d01e8310ea71104926db1179"><div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 477px; height: 269px; left: 241px; top: 162px;" data-block-id="262ce01d4734d1dd1f4edafa76faebd4"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="540" data-natural-height="304" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/953794/images/5464996/end.gif"></div></div>
-<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 171px; left: 395px; top: 475px;" data-block-id="27b140bf084cb1d12a4d5059e6fad898"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+</div></div></section></section><section data-id="facfd534d01e8310ea71104926db1179"><div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 477px; height: 269px; left: 241px; top: 70px;" data-block-id="262ce01d4734d1dd1f4edafa76faebd4"><a class="sl-block-content" style="z-index: 11;" href="https://www.surveycake.com/s/kDKO3?fbclid=IwAR2fY0KlC_5Spp9LprYLsSDyXUdRVIHmNGXQkZxmz7rgaRE2hjuHA-icXtI" target="_blank"><img style="" data-natural-width="540" data-natural-height="304" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/953794/images/5464996/end.gif"></a></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 171px; left: 395px; top: 357px;" data-block-id="27b140bf084cb1d12a4d5059e6fad898"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
 <h1><strong>THX</strong></h1>
-</div></div></section>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 680px; left: 141px; top: 611px;" data-block-id="89a4f2bffe4dbcaff28a63452f66b4ac"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p>點擊海綿寶寶填寫回饋表單 or 掃描上方 QR code</p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 134px; height: 139px; left: 414px; top: 453px;" data-block-id="fd0877d55f2271832cc2cd982ba445b8"><div class="sl-block-content" style="z-index: 14;"><img style="" data-natural-width="1242" data-natural-height="1289" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/953794/images/5488161/46259439_296624390948289_4114019374631747584_n.jpg"></div></div></section>
 			</div>
 		</div>
 
 		
 <script>
-	var SLConfig = {"current_user":{"id":953794,"username":"youngsteven","name":"Young Steven","description":null,"thumbnail_url":"https://lh4.googleusercontent.com/-BDtVGi_myvo/AAAAAAAAAAI/AAAAAAAAAAA/ABtNlbDs_CntBwh0CxT6J3p8ghhCojjb_Q/mo/photo.jpg","paid":true,"pro":true,"lite":false,"team_id":null,"settings":{"id":2136656,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null,"editor_grid":true,"editor_grid_on_top":false,"editor_snap":true,"editor_fixed_notes":false,"developer_mode":false,"speaker_layout":null,"phone_number":null,"phone_country_code":null,"media_sources":null,"export_controls":null,"export_slide_number":null,"export_slide_notes":null,"export_separate_fragments":null},"email":"gaez061732@gmail.com","notify_on_receipt":true,"billing_address":null,"billing_vat_id":null,"editor_tutorial_completed":true,"manually_upgraded":false,"deck_user_editor_limit":1,"storage_used":25865926,"storage_limit":0},"deck":{"id":1365762,"slug":"deck-2","title":"Shiny Workshop","description":"","width":960,"height":700,"visibility":"self","published_at":null,"sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/6149296eeafc2eb488e14b757b51253d/thumb.jpg?1541425789","view_count":0,"user":{"id":953794,"username":"youngsteven","name":"Young Steven","description":null,"thumbnail_url":"https://lh4.googleusercontent.com/-BDtVGi_myvo/AAAAAAAAAAI/AAAAAAAAAAA/ABtNlbDs_CntBwh0CxT6J3p8ghhCojjb_Q/mo/photo.jpg","paid":true,"pro":true,"lite":false,"team_id":null,"settings":{"id":2136656,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":false,"rolling_links":false,"center":false,"shuffle":null,"should_loop":false,"share_notes":null,"slide_number":null,"slide_count":61,"rtl":false,"version":2,"collaborative":null,"deck_user_editor_limit":1,"data_updated_at":1542211077384,"font_typekit":"","font_google":"Pattaya","notes":{}},"user":{"id":953794,"username":"youngsteven","name":"Young Steven","description":null,"thumbnail_url":"https://lh4.googleusercontent.com/-BDtVGi_myvo/AAAAAAAAAAI/AAAAAAAAAAA/ABtNlbDs_CntBwh0CxT6J3p8ghhCojjb_Q/mo/photo.jpg","paid":true,"pro":true,"lite":false,"team_id":null,"settings":{"id":2136656,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}}};
+	var SLConfig = {"current_user":{"id":953794,"username":"youngsteven","name":"Young Steven","description":null,"thumbnail_url":"https://lh4.googleusercontent.com/-BDtVGi_myvo/AAAAAAAAAAI/AAAAAAAAAAA/ABtNlbDs_CntBwh0CxT6J3p8ghhCojjb_Q/mo/photo.jpg","paid":true,"pro":true,"lite":false,"team_id":null,"settings":{"id":2136656,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null,"editor_grid":true,"editor_grid_on_top":false,"editor_snap":true,"editor_fixed_notes":false,"developer_mode":false,"speaker_layout":null,"phone_number":null,"phone_country_code":null,"media_sources":null,"export_controls":null,"export_slide_number":null,"export_slide_notes":null,"export_separate_fragments":null},"email":"gaez061732@gmail.com","notify_on_receipt":true,"billing_address":null,"billing_vat_id":null,"editor_tutorial_completed":true,"manually_upgraded":false,"deck_user_editor_limit":1,"storage_used":25922696,"storage_limit":0},"deck":{"id":1365762,"slug":"deck-2","title":"Shiny Workshop","description":"","width":960,"height":700,"visibility":"self","published_at":null,"sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/6149296eeafc2eb488e14b757b51253d/thumb.jpg?1541425789","view_count":0,"user":{"id":953794,"username":"youngsteven","name":"Young Steven","description":null,"thumbnail_url":"https://lh4.googleusercontent.com/-BDtVGi_myvo/AAAAAAAAAAI/AAAAAAAAAAA/ABtNlbDs_CntBwh0CxT6J3p8ghhCojjb_Q/mo/photo.jpg","paid":true,"pro":true,"lite":false,"team_id":null,"settings":{"id":2136656,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":false,"rolling_links":false,"center":false,"shuffle":null,"should_loop":false,"share_notes":null,"slide_number":null,"slide_count":62,"rtl":false,"version":2,"collaborative":null,"deck_user_editor_limit":1,"data_updated_at":1542273187910,"font_typekit":"","font_google":"Pattaya","notes":{}},"user":{"id":953794,"username":"youngsteven","name":"Young Steven","description":null,"thumbnail_url":"https://lh4.googleusercontent.com/-BDtVGi_myvo/AAAAAAAAAAI/AAAAAAAAAAA/ABtNlbDs_CntBwh0CxT6J3p8ghhCojjb_Q/mo/photo.jpg","paid":true,"pro":true,"lite":false,"team_id":null,"settings":{"id":2136656,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}}};
 </script>
 
 		<script>
